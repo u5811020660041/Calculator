@@ -10,7 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText number1EditText, number2EditText;
-    Button addButton;
+    Button addButton,delButton,plusButton,divButton;
     TextView resultTextView;
     int num1, num2, result;
     @Override
@@ -22,6 +22,9 @@ public class MainActivity extends AppCompatActivity {
         number1EditText = findViewById(R.id.edtNumber1);
         number2EditText = findViewById(R.id.edtNumber2);
         addButton = findViewById(R.id.btnAdd);
+        delButton = findViewById(R.id.btnDel);
+        plusButton = findViewById(R.id.btnPlus);
+        divButton = findViewById(R.id.btnDiv);
         resultTextView = findViewById(R.id.txvResult);
 
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -32,10 +35,35 @@ public class MainActivity extends AppCompatActivity {
                 num1 = Integer.parseInt(number1EditText.getText().toString().trim());
                 num2 = Integer.parseInt(number2EditText.getText().toString().trim());
                 result = num1 + num2;
-
                 resultTextView.setText(result + "");
-
             }
         }); //end setOnClickListener
+        delButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Integer.parseInt(number1EditText.getText().toString().trim());
+                num2 = Integer.parseInt(number2EditText.getText().toString().trim());
+                result = num1 - num2;
+                resultTextView.setText(result + "");
+            }
+        });
+        plusButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Integer.parseInt(number1EditText.getText().toString().trim());
+                num2 = Integer.parseInt(number2EditText.getText().toString().trim());
+                result = num1 * num2;
+                resultTextView.setText(result + "");
+            }
+        });
+        divButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = Integer.parseInt(number1EditText.getText().toString().trim());
+                num2 = Integer.parseInt(number2EditText.getText().toString().trim());
+                result = num1 / num2;
+                resultTextView.setText(result + "");
+            }
+        });
     } // end Method onCreate
 } //end Class
